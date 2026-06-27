@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Giraja Shankar | Premium Portfolio V8 Starter</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#120A1F;
+color:#F8FAFC;
+line-height:1.7;
+overflow-x:hidden;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:rgba(18,10,31,0.85);
+backdrop-filter:blur(15px);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#EC4899;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#C084FC;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px;
+background:
+linear-gradient(
+rgba(18,10,31,.55),
+rgba(18,10,31,.80)
+),
+url("https://images.unsplash.com/photo-1511497584788-876760111969?w=1800");
+background-size:cover;
+background-position:center;
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.hero h1{
+font-size:75px;
+margin-bottom:10px;
+color:white;
+}
+
+.hero p{
+font-size:24px;
+color:#E2E8F0;
+margin-bottom:30px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+display:inline-block;
+padding:14px 24px;
+margin:8px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+color:white;
+background:linear-gradient(135deg,#7C3AED,#EC4899);
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 30px rgba(236,72,153,.4);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.stat{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+padding:25px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.12);
+}
+
+.stat h3{
+font-size:35px;
+color:#EC4899;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+padding:100px 10%;
+}
+
+.section-title{
+font-size:42px;
+text-align:center;
+margin-bottom:35px;
+color:white;
+}
+
+/* =========================
+   GLASS CARDS
+========================= */
+
+.card,
+.item{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.15);
+padding:25px;
+border-radius:18px;
+margin-bottom:20px;
+transition:.3s;
+}
+
+.card:hover,
+.item:hover{
+transform:translateY(-5px);
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.skill{
+padding:12px 20px;
+border-radius:30px;
+background:rgba(124,58,237,.25);
+border:1px solid rgba(255,255,255,.12);
+transition:.3s;
+}
+
+.skill:hover{
+transform:translateY(-4px);
+background:#7C3AED;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+background:#090611;
+padding:50px 20px;
+text-align:center;
+}
+
+.follow-text{
+font-size:18px;
+color:#FBBF24;
+margin-bottom:15px;
+}
+
+.social-icons{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:20px;
+}
+
+.social-icons a{
+width:55px;
+height:55px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:22px;
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+.social-icons a:hover{
+transform:translateY(-5px) scale(1.1);
+}
+
+.copyright{
+color:#CBD5E1;
+font-size:15px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+padding:15px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+margin-top:10px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.section-title{
+font-size:30px;
+}
+
+section{
+padding:80px 20px;
+}
+
+}
+
+</style>
+<meta content="#7C3AED" name="theme-color"/><style>
+#progressBar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,#EC4899,#7C3AED,#06B6D4);z-index:99999}
+.logo{text-shadow:0 0 10px #EC4899}
+</style><style>
+#typing{font-size:22px;color:#c084fc;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.5}}
+.item,.card,.stat{transition:.4s}
+.item:hover,.card:hover,.stat:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(124,58,237,.35)}
+</style><style>
+.timeline{max-width:900px;margin:40px auto}
+.timeline .item{border-left:4px solid #7C3AED;padding-left:20px;position:relative}
+.timeline .item:before{content:'';width:12px;height:12px;background:#EC4899;border-radius:50%;position:absolute;left:-8px;top:28px}
+#topBtn{position:fixed;right:20px;bottom:20px;padding:12px 16px;border:none;border-radius:50%;display:none}
+</style><style>
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s}
+.reveal.show{opacity:1;transform:none}
+</style><style>
+body::before{content:'';position:fixed;inset:0;background:
+radial-gradient(circle at 20% 20%,rgba(124,58,237,.18),transparent 35%),
+radial-gradient(circle at 80% 70%,rgba(236,72,153,.15),transparent 35%);
+pointer-events:none}
+.progress{height:8px;background:#222;border-radius:20px;margin:10px 0}
+.bar{height:100%;background:linear-gradient(90deg,#7C3AED,#EC4899);border-radius:20px}
+</style><style>#themeToggle{position:fixed;left:20px;bottom:20px;padding:10px;border-radius:50%}.light{background:#f4f4f4;color:#222}</style><style>
+.counter{font-size:2rem;font-weight:bold}
+.ai-assistant{position:fixed;right:20px;bottom:80px;background:#7C3AED;color:#fff;padding:12px 16px;border-radius:30px;box-shadow:0 8px 20px rgba(0,0,0,.3);cursor:pointer}
+</style><style>
+.chatbox{display:none;position:fixed;right:20px;bottom:140px;width:260px;background:#1b1330;color:#fff;padding:15px;border-radius:12px}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+</style><style>.particles{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:40px 40px;opacity:.08;animation:move 20s linear infinite}@keyframes move{from{transform:translateY(0)}to{transform:translateY(-40px)}}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}</style><style>
+.light .section-title,.light h1,.light h2,.light h3{color:#111!important;text-shadow:none!important}.light p,.light .item,.light .card,.light a{color:#222!important}
+.light .card,.light .item,.light .stat{background:#fff;border:1px solid #ddd}
+#clockBox{position:fixed;bottom:150px;right:20px;z-index:10001;background:rgba(20,20,20,.75);color:#fff;padding:8px 14px;border-radius:14px;font:600 13px sans-serif;backdrop-filter:blur(10px)}
+</style><style>
+nav{box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.55));pointer-events:none}
+.hero{position:relative}.hero-content{position:relative;z-index:2}
+.hamburger{display:none;font-size:28px;color:#fff;cursor:pointer}
+@media(max-width:768px){.hamburger{display:block}nav ul{display:none;flex-direction:column}.open{display:flex!important}}
+</style><style>footer{background:linear-gradient(135deg,#090611,#28104a,#0b3b63)!important}</style><style>.hero h1{background:linear-gradient(90deg,#fff,#c084fc,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.newsletter{max-width:700px;margin:30px auto;padding:20px;border-radius:16px;background:rgba(255,255,255,.08)}.newsletter input{width:70%;padding:12px}.newsletter button{padding:12px}</style></head>
+<body><div id="progressBar"></div><div id="clockBox">--:--:-- | 00:00</div><div class="particles"></div>
+<!-- NAVBAR -->
+<nav>
+<div class="logo">Giraja Shankar</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#certificates">Certificates</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<div class="hamburger">☰</div></nav>
+<!-- HERO -->
+<section class="hero reveal">
+<div class="hero-content">
+<h1>Giraja Shankar</h1><p id="typing">AI Learner | Law Student | Teacher</p>
+<p>
+LL.B. Student • AI Learner • Teacher • Calligrapher • Translator
+</p>
+<a class="btn" href="#">Download Resume</a>
+<a class="btn" href="#">Download Marksheets</a>
+<a class="btn" href="#">My Blogs</a>
+<div class="stats">
+<div class="stat">
+<h3 class="counter">10+</h3>
+<p>Years Experience</p>
+</div>
+<div class="stat">
+<h3 class="counter">AI</h3>
+<p>Learning Journey</p>
+</div>
+<div class="stat">
+<h3 class="counter">LL.B.</h3>
+<p>Law Student</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section class="reveal" id="about">
+<h2 class="section-title">About Me</h2>
+<div class="card">
+10+ years of experience including Educational, Financial and Professional sectors. Law student with interests in Legal Research, Artificial Intelligence, Prompt Engineering and Digital Learning.
+</div>
+</section>
+<!-- EDUCATION -->
+<section class="reveal" id="education">
+<h2 class="section-title">Education</h2>
+<div class="timeline"><div class="item">LL.B. (Pursuing)</div><div class="item">AI Master Class 3.0 – Dhruv Rathee</div><div class="item">NDT Level 2</div><div class="item">Graduated in English Literature</div><div class="item">BCC (Basic Computer Course)</div></div></section>
+<!-- SKILLS -->
+<section class="reveal" id="skills">
+<h2 class="section-title">Skills</h2>
+<div class="skills">
+<div class="skill">Legal Research<div class="progress"><div class="bar" style="width:85%"></div></div></div>
+<div class="skill">Legal Writing<div class="progress"><div class="bar" style="width:85%"></div></div></div>
+<div class="skill">Artificial Intelligence<div class="progress"><div class="bar" style="width:85%"></div></div></div>
+<div class="skill">Prompt Engineering<div class="progress"><div class="bar" style="width:85%"></div></div></div>
+<div class="skill">ChatGPT<div class="progress"><div class="bar" style="width:85%"></div></div></div>
+<div class="skill">Teaching<div class="progress"><div class="bar" style="width:85%"></div></div></div>
+<div class="skill">Calligraphy<div class="progress"><div class="bar" style="width:85%"></div></div></div>
+</div>
+</section>
+<!-- CERTIFICATES -->
+<section class="reveal" id="certificates">
+<h2 class="section-title">Certificates</h2>
+<div class="gallery"><div class="item">AI Master Class 3.0 Certificate</div><div class="item">NDT Technician Certificate</div></div></section>
+<!-- PROJECTS -->
+<section class="reveal" id="projects">
+<h2 class="section-title">Projects</h2>
+<div class="project-grid"><div class="item">Professional Portfolio Website</div><div class="item">AI Learning Projects</div><div class="item">Legal Research Projects</div></div></section>
+<!-- CONTACT -->
+<section class="reveal" id="achievements"><h2 class="section-title">Achievements</h2><div class="item">10+ Years Experience</div><div class="item">LL.B. Journey</div><div class="item">AI Learning Project</div></section><section class="reveal" id="services"><h2 class="section-title">Services</h2><div class="item">Legal Research</div><div class="item">AI Prompt Engineering</div><div class="item">Teaching &amp; Training</div></section><section class="reveal" id="community"><h2 class="section-title">Join Community</h2><div class="card"><p>Become part of my AI &amp; Law community.</p><input placeholder="Your Name" style="width:100%;padding:10px;margin:8px 0"/><input placeholder="Email" style="width:100%;padding:10px;margin:8px 0"/><button class="btn" onclick="alert('Thanks for joining!')">Join Community</button></div></section><section class="reveal" id="newsletter"><h2 class="section-title">Newsletter</h2><div class="newsletter"><p>Subscribe for AI, Law and Portfolio updates.</p><input placeholder="Email"/><button>Subscribe</button></div></section><section class="reveal" id="contact">
+<h2 class="section-title">Contact</h2>
+<div class="card">
+📧 Email: girajashankar731@gmail.com
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="follow-text">
+Follow On
+</div>
+<div class="social-icons"><a href="https://www.instagram.com/giraja__shankar?igsh=MWJrcWVrYjJndnEzNA==" rel="noopener noreferrer" style="background:#E1306C;" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://www.threads.com/@giraja__shankar" rel="noopener noreferrer" style="background:#000;" target="_blank"><i class="fa-brands fa-threads"></i></a>
+<a href="https://m.facebook.com/girajashankar810/" rel="noopener noreferrer" style="background:#1877F2;" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="https://www.linkedin.com/in/giraja-shankar-b63466273?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" rel="noopener noreferrer" style="background:#0A66C2;" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="https://x.com/giraja_shankar_?t=jLHjaUk_USvM8g-ZouGtjQ&amp;s=09" rel="noopener noreferrer" style="background:#000;" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+<a href="https://youtube.com/@theawesomecalligraphy?si=wUdvx865pl_iyXO0" rel="noopener noreferrer" style="background:#F00;" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+<a href="https://in.pinterest.com/giraja_shankar/?invite_code=678238c0a5b54792910191b22d43e659&amp;sender=913738349305421142" rel="noopener noreferrer" style="background:#E60023;" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a></div>
+<p class="copyright">
+© 2026 Giraja Shankar. All Rights Reserved.
+</p>
+</footer>
+<script>window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progressBar').style.width=((h.scrollTop/(h.scrollHeight-h.clientHeight))*100)+'%';});</script><button id="topBtn">↑</button><script>const b=document.getElementById('topBtn');window.addEventListener('scroll',()=>{b.style.display=scrollY>300?'block':'none'});b.onclick=()=>scrollTo({top:0,behavior:'smooth'});</script><script>const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}));document.querySelectorAll('.reveal').forEach(x=>io.observe(x));</script><button id="themeToggle">🌓</button><script>document.getElementById('themeToggle').onclick=()=>document.body.classList.toggle('light');</script><div class="ai-assistant">🤖 AI Assistant</div><script>
+document.querySelector('.ai-assistant').onclick=()=>alert('AI Assistant will be available in V8.7!');
+document.querySelectorAll('.counter').forEach(el=>{const t=el.innerText;if(!isNaN(parseInt(t))){let n=0,e=parseInt(t);const i=setInterval(()=>{n++;el.innerText=n+'+';if(n>=e)clearInterval(i)},60);}});
+</script><div class="chatbox" id="chatbox"><b>Ask:</b><br/>- Who are you?<br/>- Skills<br/>- Education<br/>- Contact</div><script>const ai=document.querySelector('.ai-assistant'),cb=document.getElementById('chatbox');ai.onclick=()=>cb.style.display=cb.style.display==='block'?'none':'block';
+const texts=['AI Learner','Law Student','Prompt Engineer','Teacher'];let k=0;setInterval(()=>{document.getElementById('typing').textContent=texts[k++%texts.length]},1800);
+cb.onclick=()=>{};
+</script><script>
+const start=Date.now();
+setInterval(()=>{
+ const d=new Date();
+ const t=d.toLocaleTimeString();
+ let e=Math.floor((Date.now()-start)/1000);
+ let m=String(Math.floor(e/60)).padStart(2,'0');
+ let sec=String(e%60).padStart(2,'0');
+ document.getElementById('clockBox').innerHTML='🕒 '+t+'<br>⏱️ '+m+':'+sec;
+},1000);
+</script><script>const h=document.querySelector('.hamburger'),u=document.querySelector('nav ul');h.onclick=()=>u.classList.toggle('open');</script></body>
+</html>
