@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -656,7 +656,144 @@ nav ul{gap:10px}
 .mp3-grid{grid-template-columns:1fr}
 }
 </style>
-<style>.lightbox{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center}.lightbox img{max-width:90%;max-height:90%}</style></head>
+<style>.lightbox{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center}.lightbox img{max-width:90%;max-height:90%}</style>
+<!-- Firebase SDK -->
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyC3Vofy4GQC7Jx4ZGDRkpdT7OAhsFm2EeE",
+
+  authDomain: "giraja-shankar-official.firebaseapp.com",
+
+  projectId: "giraja-shankar-official",
+
+  storageBucket: "giraja-shankar-official.firebasestorage.app",
+
+  messagingSenderId: "349657349598",
+
+  appId: "1:349657349598:web:8d56ba1a4def0773bc314f"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+// Global
+window.firebaseDB = db;
+import {
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+window.testFirebase = async function () {
+
+  try {
+
+    const docRef = await addDoc(
+      collection(window.firebaseDB, "connection_test"),
+      {
+        status: "Connected",
+        time: new Date().toLocaleString()
+      }
+    );
+
+    console.log("Firebase Test Success :", docRef.id);
+
+  } catch (e) {
+
+    console.error("Firebase Error :", e);
+
+  }
+
+};
+console.log("Firebase Connected Successfully");
+window.testFirebase();
+
+console.log("Firebase Connected Successfully");
+
+</script>
+
+<style>#contact .card{max-width:650px;margin:auto}#contact input,#contact textarea{width:100%;padding:12px;margin:8px 0;border-radius:10px}
+.payment-box{
+max-width:360px;
+margin:auto;
+padding:25px;
+text-align:center;
+background:rgba(255,255,255,.08);
+border-radius:18px;
+border:2px dashed rgba(255,255,255,.4);
+}
+
+.payment-qr{
+width:220px;
+border-radius:12px;
+margin-bottom:20px;
+}
+
+.qr-modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+z-index:99999;
+align-items:center;
+justify-content:center;
+}
+
+.qr-content{
+background:#fff;
+color:#222;
+padding:25px;
+border-radius:18px;
+text-align:center;
+width:90%;
+max-width:350px;
+position:relative;
+}
+
+.qr-content img{
+width:230px;
+max-width:100%;
+}
+
+.qr-close{
+position:absolute;
+right:18px;
+top:10px;
+font-size:30px;
+cursor:pointer;
+}
+
+.loader{
+    width:60px;
+    height:60px;
+    margin:20px auto;
+    border:6px solid #ddd;
+    border-top:6px solid #2196F3;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+#timer{
+    font-size:50px;
+    color:#2196F3;
+    margin-top:15px;
+}
+</style>
+
+</head>
+
 <body>
 <div id="loader" style="position:fixed;inset:0;background:#120A1F;display:flex;align-items:center;justify-content:center;z-index:999999;color:#fff;font:700 22px sans-serif">Loading...</div>
 <div id="progressBar"></div><div id="clockBox">--:--:-- | 00:00</div><div class="particles"></div>
@@ -816,11 +953,6 @@ My Articles
 <a class="read-btn" href="constitutional-education-and-democracy.html">Read More</a>
 </div>
 <div class="article-card">
-<h3>📚 भारत में कर्मचारी शोषण की वास्तविकता</h3>
-<p>किसी भी राष्ट्र की वास्तविक प्रगति उसकी ऊँची इमारतों से नहीं, बल्कि उसके कर्मचारियों के सम्मान, सुरक्षा और न्याय से मापी जाती है।</p>
-<a class="read-btn" href="employee-rights-part-1.html">Read More</a>
-</div>
-<div class="article-card">
 <h3>सड़क पर वाहन चालक के अधिकार और जिम्मेदारियाँ 08</h3>
 <p> सड़क की भी एक भाषा होती है—सड़क पर बनी हर पट्टी, तीर और संकेत चालक से कुछ कह रहा होता है—अच्छे चालक को सड़क की यह भाषा समझनी चाहिए।</p>
 <a class="read-btn" href="driver-rights-road-safety-premium-blog-v2.html">Read More</a>
@@ -864,7 +996,7 @@ My Articles
 <p>इस विषय पर नया कानूनी और जन-जागरूकता लेख पढ़ें।</p>
 <a class="read-btn" href="blog12.html">Read More</a>
 </div>
-   <div class="article-card">
+<div class="article-card">
 <h3>📚 नया कानूनी विषय 12</h3>
 <p>इस विषय पर नया कानूनी और जन-जागरूकता लेख पढ़ें।</p>
 <a class="read-btn" href="blog12.html">Read More</a>
@@ -1143,76 +1275,3 @@ qrModal.style.display="none";
 </html>
 
 
-<style>#contact .card{max-width:650px;margin:auto}#contact input,#contact textarea{width:100%;padding:12px;margin:8px 0;border-radius:10px}
-.payment-box{
-max-width:360px;
-margin:auto;
-padding:25px;
-text-align:center;
-background:rgba(255,255,255,.08);
-border-radius:18px;
-border:2px dashed rgba(255,255,255,.4);
-}
-
-.payment-qr{
-width:220px;
-border-radius:12px;
-margin-bottom:20px;
-}
-
-.qr-modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.75);
-z-index:99999;
-align-items:center;
-justify-content:center;
-}
-
-.qr-content{
-background:#fff;
-color:#222;
-padding:25px;
-border-radius:18px;
-text-align:center;
-width:90%;
-max-width:350px;
-position:relative;
-}
-
-.qr-content img{
-width:230px;
-max-width:100%;
-}
-
-.qr-close{
-position:absolute;
-right:18px;
-top:10px;
-font-size:30px;
-cursor:pointer;
-}
-
-.loader{
-    width:60px;
-    height:60px;
-    margin:20px auto;
-    border:6px solid #ddd;
-    border-top:6px solid #2196F3;
-    border-radius:50%;
-    animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-    100%{
-        transform:rotate(360deg);
-    }
-}
-
-#timer{
-    font-size:50px;
-    color:#2196F3;
-    margin-top:15px;
-}
-</style>
