@@ -1064,57 +1064,120 @@ My Articles
     <br/>
 <span>Giraja Shankar</span>
 </div>
-</section><section class="reveal" id="community"><h2 class="section-title">Join Community</h2><div class="card"><p>Become part of my AI &amp; Law community.</p><input placeholder="Your Name" style="width:100%;padding:10px;margin:8px 0"/><input placeholder="Email" style="width:100%;padding:10px;margin:8px 0"/><button class="btn" onclick="alert('Thanks for joining!')">Join Community</button></div></section><section class="reveal" id="newsletter"><h2 class="section-title">Newsletter</h2><div class="newsletter"><p>Subscribe for AI, Law and Portfolio updates.</p><input placeholder="Email"/><button onclick="alert('Thanks for subscribing!')">Subscribe</button></div></section>
+
+<section class="reveal" id="community">
+
+<h2 class="section-title">Join Community</h2>
+
+<div class="card">
+
+<p>Become part of my AI & Law community.</p>
+
+<form id="communityForm">
+
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+style="width:100%;padding:10px;margin:8px 0"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Email"
+style="width:100%;padding:10px;margin:8px 0"
+required>
+
+<button
+class="btn"
+type="submit">
+Join Community
+</button>
+
+</form>
+
+<div id="communityStatus"></div>
+
+</div>
+
+</section>
+
+<section class="reveal" id="newsletter">
+
+<h2 class="section-title">Newsletter</h2>
+
+<div class="newsletter">
+
+<p>Subscribe for AI, Law and Portfolio updates.</p>
+
+<form id="newsletterForm">
+
+<input
+type="email"
+name="email"
+placeholder="Enter Your Email"
+required>
+
+<br><br>
+
+<button
+class="btn"
+type="submit">
+Subscribe
+</button>
+
+</form>
+
+<div id="newsletterStatus"></div>
+
+</div>
+
+</section>
 
 <section class="reveal" id="contact">
+
 <h2 class="section-title">Contact Us</h2>
 
 <div class="card">
 
 <h3>Contact Me</h3>
 
-<form action="https://formsubmit.co/girajashankar731@gmail.com" method="POST">
+<form id="contactForm">
 
-<input name="_captcha" type="hidden" value="false"/>
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required>
 
-<input name="_subject" type="hidden" value="New Portfolio Contact Form"/>
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required>
 
-<input name="_template" type="hidden" value="table"/>
+<textarea
+name="message"
+placeholder="Your Message"
+rows="6"
+required></textarea>
 
-<input name="_next" type="hidden" value="https://giraja-shankar-official.netlify.app/thankyou.html"/>
+<br><br>
 
-<input name="_autoresponse" type="hidden" value="Thank you for contacting me. I have received your message and will reply soon."/>
-
-<input 
-name="name" 
-placeholder="Your Name" 
-required 
-type="text"/>
-
-<input 
-name="email" 
-placeholder="Your Email" 
-required 
-type="email"/>
-
-<textarea 
-name="message" 
-placeholder="Your Message" 
-required 
-rows="6"></textarea>
-
-<br/><br/>
-
-<button class="btn" type="submit">
+<button
+class="btn"
+type="submit">
 Send Message
 </button>
 
 </form>
 
 </div>
+
 </section>
 
-</section><section class="reveal" id="meeting">
+<section class="reveal" id="meeting">
 <h2 class="section-title">Team Meeting</h2>
 <div class="card" style="text-align:center">
 <h3>Google Meet Room</h3>
@@ -1163,15 +1226,18 @@ Website Statistics
 <h2 id="visitorCount">Loading...</h2>
 <p>Total Visitors</p>
 </div>
+
 <footer>
 <div class="follow-text">
 Follow On
 </div>
 <div class="social-icons"><a href="https://www.instagram.com/giraja__shankar?igsh=MWJrcWVrYjJndnEzNA==" rel="noopener noreferrer" style="background:#E1306C;" target="_blank"><i class="fa-brands fa-instagram"></i></a>
 <a href="https://m.facebook.com/girajashankar810/" rel="noopener noreferrer" style="background:#1877F2;" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+
 <a href="https://www.linkedin.com/in/giraja-shankar-b63466273?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" rel="noopener noreferrer" style="background:#0A66C2;" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 <a href="https://x.com/giraja_shankar_?t=jLHjaUk_USvM8g-ZouGtjQ&amp;s=09" rel="noopener noreferrer" style="background:#000;" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
 </div>
+
 <hr/>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;text-align:left;margin:20px 0">
 </div>
