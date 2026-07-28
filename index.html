@@ -656,67 +656,7 @@ nav ul{gap:10px}
 }
 </style>
 <style>.lightbox{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center}.lightbox img{max-width:90%;max-height:90%}</style>
-<!-- Firebase SDK -->
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-
-const firebaseConfig = {
-
-  apiKey: "AIzaSyC3Vofy4GQC7Jx4ZGDRkpdT7OAhsFm2EeE",
-
-  authDomain: "giraja-shankar-official.firebaseapp.com",
-
-  projectId: "giraja-shankar-official",
-
-  storageBucket: "giraja-shankar-official.firebasestorage.app",
-
-  messagingSenderId: "349657349598",
-
-  appId: "1:349657349598:web:8d56ba1a4def0773bc314f"
-
-};
-
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
-
-// Global
-window.firebaseDB = db;
-import {
-  collection,
-  addDoc
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-
-window.testFirebase = async function () {
-
-  try {
-
-    const docRef = await addDoc(
-      collection(window.firebaseDB, "connection_test"),
-      {
-        status: "Connected",
-        time: new Date().toLocaleString()
-      }
-    );
-
-    console.log("Firebase Test Success :", docRef.id);
-
-  } catch (e) {
-
-    console.error("Firebase Error :", e);
-
-  }
-
-};
-console.log("Firebase Connected Successfully");
-window.testFirebase();
-
-console.log("Firebase Connected Successfully");
-
-</script>
-
+<!-- Firebase handled by firebase.js -->
 /* ==========================================
    PAYMENT CENTER - PREMIUM DESIGN
 ========================================== */
@@ -1207,13 +1147,29 @@ My Articles
 <h2 class="section-title">Join Community</h2>
 <div class="card">
 <p>Become part of my AI &amp; Law community.</p>
+
 <form id="communityForm">
-<input name="name" placeholder="Your Name" required="" style="width:100%;padding:10px;margin:8px 0" type="text"/>
-<input name="email" placeholder="Email" required="" style="width:100%;padding:10px;margin:8px 0" type="email"/>
+
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required
+style="width:100%;padding:10px;margin:8px 0">
+
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required
+style="width:100%;padding:10px;margin:8px 0">
+
 <button class="btn" type="submit">
 Join Community
 </button>
+
 </form>
+
 <div id="communityStatus"></div>
 </div>
 </section>
@@ -1221,13 +1177,27 @@ Join Community
 <h2 class="section-title">Newsletter</h2>
 <div class="newsletter">
 <p>Subscribe for AI, Law and Portfolio updates.</p>
+
 <form id="newsletterForm">
-<input name="email" placeholder="Enter Your Email" required="" type="email"/>
-<br/><br/>
-<button class="btn" type="submit">
+
+<input
+type="email"
+name="email"
+placeholder="Enter Your Email"
+required>
+
+<br><br>
+
+<button
+class="btn"
+type="submit">
+
 Subscribe
+
 </button>
+
 </form>
+
 <div id="newsletterStatus"></div>
 </div>
 </section>
@@ -1235,15 +1205,39 @@ Subscribe
 <h2 class="section-title">Contact Us</h2>
 <div class="card">
 <h3>Contact Me</h3>
+
 <form id="contactForm">
-<input name="name" placeholder="Your Name" required="" type="text"/>
-<input name="email" placeholder="Your Email" required="" type="email"/>
-<textarea name="message" placeholder="Your Message" required="" rows="6"></textarea>
-<br/><br/>
-<button class="btn" type="submit">
+
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required>
+
+<textarea
+name="message"
+rows="6"
+placeholder="Your Message"
+required></textarea>
+
+<br><br>
+
+<button
+class="btn"
+type="submit">
+
 Send Message
+
 </button>
+
 </form>
+
 </div>
 </section>
 <section class="reveal" id="meeting">
@@ -1310,7 +1304,9 @@ July 2026</p>
 <h1 id="timer" style="font-size:56px;color:#7C3AED">5</h1>
 </div>
 </div>
-</div></section>
+</div>
+</section>
+
 <!-- FOOTER -->
 <section class="reveal">
 <h2 class="section-title">
@@ -1320,6 +1316,8 @@ Website Statistics
 <h2 id="visitorCount">Loading...</h2>
 <p>Total Visitors</p>
 </div>
+</section>
+
 <section class="reveal" id="vision">
 <h2 class="section-title"> Our Vision </h2>
 <div class="footer-vision">
@@ -1327,7 +1325,10 @@ Website Statistics
     <br/>
 <span>Giraja Shankar</span>
 </div>
-</section><footer>
+</section>
+
+
+<footer>
 <div class="follow-text">
 Follow On
 </div>
@@ -1377,43 +1378,7 @@ c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none';
 }
 
 </script>
-<script>
-window.onload = function () {
-fetch("https://api.countapi.xyz/hit/girajashankar-portfolio/visits")
-.then(res => res.json())
-.then(data => {
-document.getElementById("visitorCount").innerText = data.value;
-})
-.catch(() => {
-document.getElementById("visitorCount").innerText = "N/A";
-});
-};
-</script>
-<script>
-document.querySelectorAll('nav a').forEach(a=>{
- a.addEventListener('click',()=>document.querySelectorAll('nav a').forEach(x=>x.classList.remove('active')));
-});
-window.addEventListener('scroll',()=>{
- let from=scrollY+120;
- document.querySelectorAll('section[id]').forEach(s=>{
-   let a=document.querySelector('nav a[href="#'+s.id+'"]');
-   if(a && from>=s.offsetTop && from<s.offsetTop+s.offsetHeight){
-      document.querySelectorAll('nav a').forEach(x=>x.classList.remove('active'));
-      a.classList.add('active');
-   }
- });
-});
-</script>
-<style>nav a.active{color:#EC4899;border-bottom:2px solid #EC4899;padding-bottom:4px}</style>
-<script>window.addEventListener("load",()=>{const l=document.getElementById("loader");if(l)l.remove();});</script><script>document.querySelectorAll("img").forEach(i=>i.loading="lazy");</script><script>document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));</script><script>document.querySelectorAll("section").forEach(s=>s.style.scrollMarginTop="90px");</script>
-<script>
-const downBtn=document.querySelector('.scroll-down-btn');
-if(downBtn){
-downBtn.onclick=function(e){e.preventDefault();window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});}
-window.addEventListener('scroll',()=>{downBtn.style.display=(window.innerHeight+window.scrollY>=document.body.scrollHeight-10)?'none':'flex';});
-}
-</script>
-</section><script>document.getElementById('siteSearch').onkeyup=function(){let q=this.value.toLowerCase();document.querySelectorAll('section').forEach(x=>x.style.display=x.innerText.toLowerCase().includes(q)?'block':'none');};</script><div class="lightbox" id="lightbox"><img id="lbimg"/></div><script>document.querySelectorAll('img').forEach(i=>i.onclick=()=>{lbimg.src=i.src;lightbox.style.display='flex'});lightbox.onclick=()=>lightbox.style.display='none';</script>
+<!-- Visitor counter handled by visitor-counter.js --><div class="lightbox" id="lightbox"><img id="lbimg"/></div><script>document.querySelectorAll('img').forEach(i=>i.onclick=()=>{lbimg.src=i.src;lightbox.style.display='flex'});lightbox.onclick=()=>lightbox.style.display='none';</script>
 <script>
 (() => {
     const i = document.getElementById("siteSearch");
@@ -1464,5 +1429,8 @@ window.onclick=e=>{
 <script src="contact-form.js" type="module"></script>
 <script src="community.js" type="module"></script>
 <script src="newsletter.js" type="module"></script>
-<script src="visitor-counter.js" type="module"></script>
-</body></html>
+<script src="visitor-counter.js" type="module">
+</script>
+
+</body>
+</html>
