@@ -9,62 +9,60 @@ import {
   collection,
   addDoc,
   serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
 
-    contactForm.addEventListener("submit", async (e) => {
+  contactForm.addEventListener("submit", async (e) => {
 
-        e.preventDefault();
+    e.preventDefault();
 
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
+    const name = contactForm.querySelector('input[name="name"]').value.trim();
+    const email = contactForm.querySelector('input[name="email"]').value.trim();
+    const message = contactForm.querySelector('textarea[name="message"]').value.trim();
 
-        if (!name || !email || !message) {
-            alert("Please fill all fields.");
-            return;
-        }
+    if (!name || !email || !message) {
+      alert("Please fill all fields.");
+      return;
+    }
 
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = "Sending...";
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = "Sending...";
 
-        try {
+    try {
 
-            await addDoc(collection(db, "contact_messages"), {
+      await addDoc(collection(db, "contact_messages"), {
+        name,
+        email,
+        message,
+        createdAt: serverTimestamp()
+      });
 
-                name: name,
-                email: email,
-                message: message,
-                createdAt: serverTimestamp()
+      alert("✅ Your message has been sent successfully.");
 
-            });
+      contactForm.reset();
 
-            alert("✅ Your message has been sent successfully.");
+    } catch (error) {
 
-            contactForm.reset();
+      console.error("Contact Form Error:", error);
 
-        } catch (error) {
+      alert("❌ Failed to send message. Please try again.");
 
-            console.error("Contact Form Error:", error);
+    } finally {
 
-            alert("❌ Failed to send message. Please try again.");
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = "Send Message";
 
-        } finally {
+    }
 
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = "Send Message";
-
-        }
-
-    });
+  });
 
 } else {
 
-    console.warn("Contact form not found.");
+  console.warn("Contact form not found.");
 
 }
