@@ -609,7 +609,6 @@ z-index:-1;
 from{transform:translateY(0)}
 to{transform:translateY(-350px)}
 }
-
 </style>
 <style>
 .hero h1,.hero h2,.hero p{
@@ -718,82 +717,222 @@ console.log("Firebase Connected Successfully");
 
 </script>
 
-<style>#contact .card{max-width:650px;margin:auto}#contact input,#contact textarea{width:100%;padding:12px;margin:8px 0;border-radius:10px}
+/* ==========================================
+   PAYMENT CENTER - PREMIUM DESIGN
+========================================== */
+<style>
+
 .payment-box{
-max-width:360px;
-margin:auto;
-padding:25px;
-text-align:center;
-background:rgba(255,255,255,.08);
-border-radius:18px;
-border:2px dashed rgba(255,255,255,.4);
+    max-width:900px;
+    margin:40px auto;
+    padding:35px;
+    text-align:center;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:22px;
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 12px 35px rgba(0,0,0,.35);
 }
 
 .payment-qr{
-width:220px;
-border-radius:12px;
-margin-bottom:20px;
+    width:220px;
+    max-width:100%;
+    padding:12px;
+    background:#fff;
+    border-radius:18px;
+    margin-bottom:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,.30);
+    transition:.35s ease;
 }
 
+.payment-qr:hover{
+    transform:scale(1.05);
+}
+
+.payment-options{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    margin:30px 0;
+}
+
+.pay-option{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    padding:16px;
+    border-radius:15px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    transition:.35s ease;
+    cursor:pointer;
+}
+
+.pay-option:hover{
+    transform:translateY(-6px);
+    background:rgba(255,255,255,.15);
+    box-shadow:0 10px 25px rgba(0,0,0,.30);
+}
+
+.pay-option i{
+    font-size:24px;
+    color:#FFD54F;
+}
+
+.pay-option span{
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+}
+
+#payment #payBtn{
+    margin-top:15px;
+    padding:14px 36px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(135deg,#00c853,#00e676);
+    color:#fff;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.35s ease;
+    box-shadow:0 8px 25px rgba(0,200,83,.35);
+}
+
+#payment #payBtn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(0,200,83,.45);
+}
+
+/* ===== QR Modal ===== */
+
 .qr-modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.75);
-z-index:99999;
-align-items:center;
-justify-content:center;
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.80);
+    z-index:99999;
+    justify-content:center;
+    align-items:center;
 }
 
 .qr-content{
-background:#fff;
-color:#222;
-padding:25px;
-border-radius:18px;
-text-align:center;
-width:90%;
-max-width:350px;
-position:relative;
+    width:90%;
+    max-width:380px;
+    background:#fff;
+    color:#222;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    position:relative;
+    animation:popup .35s ease;
+    box-shadow:0 15px 45px rgba(0,0,0,.40);
 }
 
-.qr-content img{
-width:230px;
-max-width:100%;
-}
-
-.qr-close{
-position:absolute;
-right:18px;
-top:10px;
-font-size:30px;
-cursor:pointer;
-}
-
-.loader{
-    width:60px;
-    height:60px;
-    margin:20px auto;
-    border:6px solid #ddd;
-    border-top:6px solid #2196F3;
-    border-radius:50%;
-    animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-    100%{
-        transform:rotate(360deg);
+@keyframes popup{
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
     }
 }
 
-#timer{
-    font-size:50px;
-    color:#2196F3;
-    margin-top:15px;
+.qr-content h2{
+    margin-bottom:18px;
+}
+
+.qr-content img{
+    width:230px;
+    max-width:100%;
+    padding:10px;
+    background:#fff;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.20);
+}
+
+.qr-content p{
+    margin-top:18px;
+    color:#555;
+    line-height:1.6;
+}
+
+.qr-close{
+    position:absolute;
+    top:12px;
+    right:18px;
+    font-size:30px;
+    color:#444;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.qr-close:hover{
+    color:#f44336;
+    transform:rotate(90deg);
+}
+
+/* ===== Mobile ===== */
+
+@media(max-width:768px){
+
+.payment-box{
+    padding:22px;
+}
+
+.payment-options{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.pay-option{
+    padding:14px;
+}
+
+.pay-option i{
+    font-size:20px;
+}
+
+.pay-option span{
+    font-size:14px;
+}
+
+.payment-qr{
+    width:180px;
+}
+
+#payment #payBtn{
+    width:100%;
+}
+
+}
+
+@media(max-width:480px){
+
+.payment-options{
+    grid-template-columns:1fr;
+}
+
+.payment-box{
+    padding:18px;
+}
+
 }
 </style>
-
-</head>
-
+<style>
+#newsletter .newsletter{max-width:650px;margin:30px auto;padding:25px;border-radius:18px;background:rgba(255,255,255,.08)}
+#contact .card{max-width:650px;margin:0 auto}
+#contact input,#contact textarea,#newsletter input{
+width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid rgba(255,255,255,.2);
+}
+#contact button,#newsletter button{display:block;margin:15px auto}
+footer{margin-top:0!important;padding-bottom:50px!important}
+body{overflow-x:hidden}
+</style></head>
 <body>
 <div id="loader" style="position:fixed;inset:0;background:#120A1F;display:flex;align-items:center;justify-content:center;z-index:999999;color:#fff;font:700 22px sans-serif">Loading...</div>
 <div id="progressBar"></div><div id="clockBox">--:--:-- | 00:00</div><div class="particles"></div>
@@ -887,8 +1026,10 @@ My Articles
 <div class="card">
 10+ Years of Experience across education, finance and Professional sector with a growing focus on AI and legal technology. Law student with interests in Legal Research, Artificial Intelligence, Prompt Engineering and Article Writing.
 </div>
-</section><section class="reveal" id="latest"><h2 class="section-title">Latest Articles</h2><div class="article-card"><h3>⚖️ लोकतंत्र में जनता कमजोर क्यों?</h3>
-<p>नेता जनता के प्रतिनिधि हैं, राजा नहीं। जब जनता अपने संवैधानिक अधिकार भूल जाती है, सत्ता अपनी संवैधानिक सीमाएँ भूल सकती है। इसलिए भारत को केवल अच्छे नेताओं और अधिकारियों की नहीं, संवैधानिक रूप से जागरूक नागरिकों की भी आवश्यकता है।</p><a class="read-btn" href="power-constitution-and-people.html">Read Latest Article</a></div></section>
+</section>
+<section class="reveal" id="latest"><h2 class="section-title">Latest Articles</h2><div class="article-card"><h3>⚖️ लोकतंत्र में जनता कमजोर क्यों?</h3>
+<p>नेता जनता के प्रतिनिधि हैं, राजा नहीं। जब जनता अपने संवैधानिक अधिकार भूल जाती है, सत्ता अपनी संवैधानिक सीमाएँ भूल सकती है। इसलिए भारत को केवल अच्छे नेताओं और अधिकारियों की नहीं, संवैधानिक रूप से जागरूक नागरिकों की भी आवश्यकता है।</p><a class="read-btn" href="power-constitution-and-people.html">Read Latest Article</a></div>
+</section>
 <!-- EDUCATION -->
 <section class="reveal" id="education">
 <h2 class="section-title">Education</h2>
@@ -905,7 +1046,8 @@ My Articles
 <div class="skill">Teaching<div class="progress"><div class="bar" style="width:85%"></div></div></div>
 <div class="skill">Calligraphy<div class="progress"><div class="bar" style="width:85%"></div></div></div>
 </div>
-</section><section class="reveal" id="articles">
+</section>
+<section class="reveal" id="articles">
 <input id="blogSearch" placeholder="Search articles..." style="width:100%;padding:12px;margin:20px 0;border-radius:10px;"/><h2 class="section-title">My Legal Articles</h2>
 <div class="article-card">
 <h3>📖 भारतीय संविधान क्या है?</h3>
@@ -984,14 +1126,14 @@ My Articles
    नीतियों का समर्थन या विरोध कर सके, और बिना भय के अपने अधिकारों की रक्षा कर सके।"</p>
 <a class="read-btn" href="protest rights.html">Read More</a>
 </div>
-   <div class="article-card">
+<div class="article-card">
 <h3>📚क्या छात्रों के न्याय की अंतिम उम्मीद भी खत्म हो जाएगी?
 क्या कहता है संविधान का अनुच्छेद 32? CJP Students Protest, Delhi 2026</h3>
 <p>जब किसी नागरिक या समूह को यह महसूस होता है कि उसके मौलिक अधिकारों का उल्लंघन हुआ है, तो भारतीय संविधान उसे केवल शिकायत करने का अधिकार ही नहीं देता,
    बल्कि न्याय प्राप्त करने का एक सीधा संवैधानिक मार्ग भी उपलब्ध कराता है। यह मार्ग है—भारतीय संविधान का अनुच्छेद 32।</p>
 <a class="read-btn" href="article 32.html">Read More</a>
 </div>
-   <div class="article-card">
+<div class="article-card">
 <h3>📚 नया कानूनी विषय 12</h3>
 <p>इस विषय पर नया कानूनी और जन-जागरूकता लेख पढ़ें।</p>
 <a class="read-btn" href="blog12.html">Read More</a>
@@ -1007,15 +1149,17 @@ My Articles
 <h3>🎓 Academic Qualification</h3>
 <p>Complete qualification details.</p>
 <a class="btn" href="qualification.pdf" target="_blank">👁 View PDF</a>
-</div><div class="gallery"><div class="item"><h3>🤖 AI Certificate</h3><a class="btn viewfix" href="AI Certificate.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>💻 BCC Certificate</h3><a class="btn viewfix" href="BCC certificate.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>🔧 NDT Level-II</h3><a class="btn viewfix" href="NDT certificate.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>📜 STC</h3><a class="btn viewfix" href="STC Certificates.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>🏆 TWR</h3><a class="btn viewfix" href="TWR Certificate.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>🩺 SoHS</h3><a class="btn viewfix" href="SoHS certificate.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>🏢 SAHAJ</h3><a class="btn viewfix" href="SAHAJ certificate.pdf" target="_blank">👁 View PDF</a></div></div><div class="card">
+</div><div class="gallery"><div class="item"><h3>🤖 AI Certificate</h3><a class="btn viewfix" href="AI Certificate.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>💻 BCC Certificate</h3><a class="btn viewfix" href="BCC certificate.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>🔧 NDT Level-II</h3><a class="btn viewfix" href="NDT certificate.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>📜 STC</h3><a class="btn viewfix" href="STC Certificates.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>🏆 TWR</h3><a class="btn viewfix" href="TWR Certificate.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>🩺 SoHS</h3><a class="btn viewfix" href="SoHS certificate.pdf" target="_blank">👁 View PDF</a></div><div class="item"><h3>🏢 SAHAJ</h3><a class="btn viewfix" href="SAHAJ certificate.pdf" target="_blank">👁 View PDF</a></div></div>
+<div class="card">
 <h3>💼 Professional Experience</h3>
 <p>SFL Experience Letter</p>
-<a class="btn" href="SFL experience Letter.pdf" target="_blank">👁 View PDF</a>
-</div></section><section class="reveal" id="gallery"><h2 class="section-title">Photo Gallery</h2><div class="gallery"><div class="item">Photo 1<br/><a class="download-btn" href="photo1.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;">👁 View Photo</a></div><div class="item">Photo 2<br/><a class="download-btn" href="photo2.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;">👁 View Photo</a></div><div class="item">Photo 3<br/><a class="download-btn" href="photo3.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;">👁 View Photo</a></div><div class="item">Photo 4<br/><a class="download-btn" href="photo4.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;">👁 View Photo</a></div><div class="item">Photo 5<br/><a class="download-btn" href="photo5.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;">👁 View Photo</a></div><div class="item">Photo 6<br/><a class="download-btn" href="photo6.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;">👁 View Photo</a></div><div class="item">Photo 7<br/><a class="download-btn" href="photo7.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;">👁 View Photo</a></div><div class="item">Photo 8<br/><a class="download-btn" href="photo8.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;">👁 View Photo</a></div><div class="item">Photo 9<br/><a class="download-btn" href="photo9.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;">👁 View Photo</a></div><div class="item">Photo 10<br/><a class="download-btn" href="photo10.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;">👁 View Photo</a></div></div></section>
+<a class="btn" href="SFL experience Letter.pdf" target="_blank"> View PDF</a>
+</div></section><section class="reveal" id="gallery"><h2 class="section-title">Photo Gallery</h2><div class="gallery"><div class="item">Photo 1<br/><a class="download-btn" href="photo1.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;"> View Photo</a></div><div class="item">Photo 2<br/><a class="download-btn" href="photo2.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;"> View Photo</a></div><div class="item">Photo 3<br/><a class="download-btn" href="photo3.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;"> View Photo</a></div><div class="item">Photo 4<br/><a class="download-btn" href="photo4.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;"> View Photo</a></div><div class="item">Photo 5<br/><a class="download-btn" href="photo5.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;"> View Photo</a></div><div class="item">Photo 6<br/><a class="download-btn" href="photo6.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;"> View Photo</a></div><div class="item">Photo 7<br/><a class="download-btn" href="photo7.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;"> View Photo</a></div><div class="item">Photo 8<br/><a class="download-btn" href="photo8.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;"> View Photo</a></div><div class="item">Photo 9<br/><a class="download-btn" href="photo9.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;"> View Photo</a></div><div class="item">Photo 10<br/><a class="download-btn" href="photo10.jpg" style="padding:8px 14px;font-size:14px;margin:10px auto;display:inline-block;"> View Photo</a></div></div>
+</section>
 <section class="reveal" id="bible">
-<h2 class="section-title">📖 Bible Learning Hub</h2>
+<h2 class="section-title">📖 Bible Teachings Hub</h2>
 <div class="card bible-featured-card">
-<h3>⭐ Featured Teaching</h3>
+<h3>⭐ Featured Teaching (Hindi Translation)</h3>
 <div class="featured-teaching-row">
 <h4>Faith Like Abraham</h4>
 <a class="bible-action-btn youtube-btn" href="https://youtu.be/22q22bfP1BU" rel="noopener noreferrer" target="_blank">
@@ -1057,164 +1201,114 @@ My Articles
 <h2 class="section-title">Projects</h2>
 <div class="project-grid"><div class="item">Professional Portfolio Website</div><div class="item">AI Learning Projects</div><div class="item">Legal Research Projects</div></div></section>
 <!-- CONTACT -->
-<section class="reveal" id="achievements"><h2 class="section-title">Achievements</h2><div class="item">10+ Years Experience</div><div class="item">LL.B. Journey</div><div class="item">AI Learning Project</div></section><section class="reveal" id="services"><h2 class="section-title">Services</h2><div class="item">Legal Research</div><div class="item">AI Prompt Engineering</div><div class="item">Teaching &amp; Training</div></section><section class="reveal" id="vision">
-<h2 class="section-title"> Our Vision </h2>
-<div class="footer-vision">
-    "Learn. Lead. Inspire."
-    <br/>
-<span>Giraja Shankar</span>
-</div>
-
+<section class="reveal" id="achievements"><h2 class="section-title">Achievements</h2><div class="item">10+ Years Experience</div><div class="item">LL.B. Journey</div><div class="item">AI Learning Project</div></section><section class="reveal" id="services"><h2 class="section-title">Services</h2><div class="item">Legal Research</div><div class="item">AI Prompt Engineering</div><div class="item">Teaching &amp; Training</div>
+</section>
 <section class="reveal" id="community">
-
 <h2 class="section-title">Join Community</h2>
-
 <div class="card">
-
-<p>Become part of my AI & Law community.</p>
-
+<p>Become part of my AI &amp; Law community.</p>
 <form id="communityForm">
-
-<input
-type="text"
-name="name"
-placeholder="Your Name"
-style="width:100%;padding:10px;margin:8px 0"
-required>
-
-<input
-type="email"
-name="email"
-placeholder="Email"
-style="width:100%;padding:10px;margin:8px 0"
-required>
-
-<button
-class="btn"
-type="submit">
+<input name="name" placeholder="Your Name" required="" style="width:100%;padding:10px;margin:8px 0" type="text"/>
+<input name="email" placeholder="Email" required="" style="width:100%;padding:10px;margin:8px 0" type="email"/>
+<button class="btn" type="submit">
 Join Community
 </button>
-
 </form>
-
 <div id="communityStatus"></div>
-
 </div>
-
 </section>
-
 <section class="reveal" id="newsletter">
-
 <h2 class="section-title">Newsletter</h2>
-
 <div class="newsletter">
-
 <p>Subscribe for AI, Law and Portfolio updates.</p>
-
 <form id="newsletterForm">
-
-<input
-type="email"
-name="email"
-placeholder="Enter Your Email"
-required>
-
-<br><br>
-
-<button
-class="btn"
-type="submit">
+<input name="email" placeholder="Enter Your Email" required="" type="email"/>
+<br/><br/>
+<button class="btn" type="submit">
 Subscribe
 </button>
-
 </form>
-
 <div id="newsletterStatus"></div>
-
 </div>
-
 </section>
-
 <section class="reveal" id="contact">
-
 <h2 class="section-title">Contact Us</h2>
-
 <div class="card">
-
 <h3>Contact Me</h3>
-
 <form id="contactForm">
-
-<input
-type="text"
-name="name"
-placeholder="Your Name"
-required>
-
-<input
-type="email"
-name="email"
-placeholder="Your Email"
-required>
-
-<textarea
-name="message"
-placeholder="Your Message"
-rows="6"
-required></textarea>
-
-<br><br>
-
-<button
-class="btn"
-type="submit">
+<input name="name" placeholder="Your Name" required="" type="text"/>
+<input name="email" placeholder="Your Email" required="" type="email"/>
+<textarea name="message" placeholder="Your Message" required="" rows="6"></textarea>
+<br/><br/>
+<button class="btn" type="submit">
 Send Message
 </button>
-
 </form>
-
 </div>
-
 </section>
-
 <section class="reveal" id="meeting">
 <h2 class="section-title">Team Meeting</h2>
 <div class="card" style="text-align:center">
 <h3>Google Meet Room</h3>
 <p>Welcome to Join With us to Discuss on Social, Political, and Economical issues of India! </p>
 <a class="btn" href="https://meet.google.com/ggk-gzfq-qow" target="_blank">Join Google Meet</a>
-<p style="margin-top:10px;color:#FBBF24">🟢 Meeting Status: Live<br/>📅 Last Updated: 14 July 2026</p>
+<p style="margin-top:10px;color:#FBBF24">🟢 Meeting Status: on hold <br/>📅 Last Updated: 28
+July 2026</p>
 </div>
-
-
+</section>
 <section class="reveal" id="payment">
 <h2 class="section-title">Payment Center</h2>
-
 <div class="payment-box">
-
-<img src="QR.jpg" alt="Payment QR" class="payment-qr">
-
-<button class="btn" id="payBtn">
-<i class="fas fa-qrcode"></i> Pay Now
-</button>
-
+<div class="payment-options">
+<div class="pay-option" data-pay="1">
+<i class="fas fa-mobile-alt"></i>
+<span>UPI</span>
 </div>
-
-</section>
-
-<div id="qrModal" class="qr-modal">
-
+<div class="pay-option" data-pay="1">
+<i class="fab fa-google-pay"></i>
+<span>Google Pay</span>
+</div>
+<div class="pay-option" data-pay="1">
+<i class="fas fa-wallet"></i>
+<span>PhonePe</span>
+</div>
+<div class="pay-option" data-pay="1">
+<i class="fas fa-wallet"></i>
+<span>Paytm</span>
+</div>
+<div class="pay-option" data-pay="1">
+<i class="fas fa-university"></i>
+<span>BHIM UPI</span>
+</div>
+<div class="pay-option" data-pay="1">
+<i class="fas fa-building-columns"></i>
+<span>Net Banking</span>
+</div>
+<div class="pay-option" data-pay="1">
+<i class="far fa-credit-card"></i>
+<span>Credit Card</span>
+</div>
+<div class="pay-option" data-pay="1">
+<i class="far fa-credit-card"></i>
+<span>Debit Card</span>
+</div>
+</div>
+<button class="btn" id="payBtn">
+<i class="fas fa-shield-heart"></i> Secure Payment
+        </button>
+<div class="qr-modal" id="qrModal">
 <div class="qr-content">
-
-<span class="qr-close">&times;</span>
-
-<h2>Scan & Pay</h2>
-
-<img src="QR.jpg" alt="Payment QR">
-
+<span class="qr-close">×</span>
+<h2>Scan &amp; Pay</h2>
+<img alt="Payment QR" src="QR.jpg"/>
 <p>Scan this QR Code using any UPI App.</p>
 </div>
-
+</div><div class="qr-modal" id="countdownModal">
+<div class="qr-content">
+<h2>Preparing Secure Payment</h2>
+<p>Opening QR Code in</p>
+<h1 id="timer" style="font-size:56px;color:#7C3AED">5</h1>
+</div>
 </div>
 </div></section>
 <!-- FOOTER -->
@@ -1226,18 +1320,22 @@ Website Statistics
 <h2 id="visitorCount">Loading...</h2>
 <p>Total Visitors</p>
 </div>
-
-<footer>
+<section class="reveal" id="vision">
+<h2 class="section-title"> Our Vision </h2>
+<div class="footer-vision">
+    "Learn. Lead. Inspire."
+    <br/>
+<span>Giraja Shankar</span>
+</div>
+</section><footer>
 <div class="follow-text">
 Follow On
 </div>
 <div class="social-icons"><a href="https://www.instagram.com/giraja__shankar?igsh=MWJrcWVrYjJndnEzNA==" rel="noopener noreferrer" style="background:#E1306C;" target="_blank"><i class="fa-brands fa-instagram"></i></a>
 <a href="https://m.facebook.com/girajashankar810/" rel="noopener noreferrer" style="background:#1877F2;" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-
 <a href="https://www.linkedin.com/in/giraja-shankar-b63466273?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" rel="noopener noreferrer" style="background:#0A66C2;" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 <a href="https://x.com/giraja_shankar_?t=jLHjaUk_USvM8g-ZouGtjQ&amp;s=09" rel="noopener noreferrer" style="background:#000;" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
 </div>
-
 <hr/>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;text-align:left;margin:20px 0">
 </div>
@@ -1315,65 +1413,56 @@ downBtn.onclick=function(e){e.preventDefault();window.scrollTo({top:document.bod
 window.addEventListener('scroll',()=>{downBtn.style.display=(window.innerHeight+window.scrollY>=document.body.scrollHeight-10)?'none':'flex';});
 }
 </script>
-</section><script>document.getElementById('siteSearch').onkeyup=function(){let q=this.value.toLowerCase();document.querySelectorAll('section').forEach(x=>x.style.display=x.innerText.toLowerCase().includes(q)?'block':'none');};</script><div class="lightbox" id="lightbox"><img id="lbimg"/></div><script>document.querySelectorAll('img').forEach(i=>i.onclick=()=>{lbimg.src=i.src;lightbox.style.display='flex'});lightbox.onclick=()=>lightbox.style.display='none';</script><script>const s=document.getElementById('siteSearch');if(s){s.onfocus=()=>s.style.width='260px';s.onblur=()=>{if(!s.value)s.style.width='120px';}}</script><script>var e=document.getElementById('siteSearch');if(e){e.onfocus=()=>e.style.width='240px';e.onblur=()=>{if(!e.value)e.style.width='110px';}}</script><script>(()=>{const i=document.getElementById('siteSearch');if(i){i.onfocus=()=>i.style.width='220px';i.onblur=()=>{if(!i.value)i.style.width='100px';}})();</script>
-
+</section><script>document.getElementById('siteSearch').onkeyup=function(){let q=this.value.toLowerCase();document.querySelectorAll('section').forEach(x=>x.style.display=x.innerText.toLowerCase().includes(q)?'block':'none');};</script><div class="lightbox" id="lightbox"><img id="lbimg"/></div><script>document.querySelectorAll('img').forEach(i=>i.onclick=()=>{lbimg.src=i.src;lightbox.style.display='flex'});lightbox.onclick=()=>lightbox.style.display='none';</script>
 <script>
+(() => {
+    const i = document.getElementById("siteSearch");
 
-const payBtn=document.getElementById("payBtn");
-const qrModal=document.getElementById("qrModal");
-const qrClose=document.querySelector(".qr-close");
+    if (i) {
+        i.onfocus = () => {
+            i.style.width = "220px";
+        };
 
-payBtn.onclick=function(){
-
-    const countdown=document.getElementById("countdownModal");
-    const timer=document.getElementById("timer");
-
-    countdown.style.display="flex";
-
-    let sec=5;
-
-    timer.innerHTML=sec;
-
-    let x=setInterval(function(){
-
-        sec--;
-
-        timer.innerHTML=sec;
-
-        if(sec<=0){
-
-            clearInterval(x);
-
-            countdown.style.display="none";
-
-            qrModal.style.display="flex";
-
-        }
-
-    },1000);
-
-}
-;
-};
-
-qrClose.onclick=function(){
-qrModal.style.display="none";
-};
-
-window.onclick=function(e){
-if(e.target==qrModal){
-qrModal.style.display="none";
-}
-};
-
+        i.onblur = () => {
+            if (!i.value) {
+                i.style.width = "100px";
+            }
+        };
+    }
+})();
 </script>
-
-<div id="countdownModal" class="qr-modal">
-...
-</div>
-<script type="module" src="firebase.js"></script>
-</body>
-
-</html>
-
-
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+const payBtn=document.getElementById("payBtn");
+const qr=document.getElementById("qrModal");
+const cd=document.getElementById("countdownModal");
+const timer=document.getElementById("timer");
+const close=document.querySelector(".qr-close");
+function startFlow(){
+ if(!cd||!qr)return;
+ cd.style.display="flex";
+ let s=5; timer.textContent=s;
+ const t=setInterval(()=>{
+   s--; timer.textContent=s;
+   if(s<=0){
+     clearInterval(t);
+     cd.style.display="none";
+     qr.style.display="flex";
+   }
+ },1000);
+}
+document.querySelectorAll(".pay-option").forEach(e=>e.onclick=startFlow);
+if(payBtn) payBtn.onclick=startFlow;
+if(close) close.onclick=()=>qr.style.display="none";
+window.onclick=e=>{
+ if(e.target===qr) qr.style.display="none";
+ if(e.target===cd) cd.style.display="none";
+};
+});
+</script>
+<script src="firebase.js" type="module"></script>
+<script src="contact-form.js" type="module"></script>
+<script src="community.js" type="module"></script>
+<script src="newsletter.js" type="module"></script>
+<script src="visitor-counter.js" type="module"></script>
+</body></html>
