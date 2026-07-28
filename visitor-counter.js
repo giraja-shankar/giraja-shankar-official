@@ -1,58 +1,66 @@
 // ======================================
 // Giraja Shankar Official
-// Visitor Counter
+// Newsletter Form (Firebase Firestore)
 // ======================================
 
 import { db } from "./firebase.js";
 
 import {
-  doc,
-  getDoc,
-  setDoc,
-  updateDoc,
-  increment
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  collection,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-const counterRef = doc(db, "websiteStats", "visitorCounter");
-const counterElement = document.getElementById("visitorCount");
+const newsletterForm = document.getElementById("newsletterForm");
 
-async function updateVisitorCounter() {
+if (newsletterForm) {
+
+  newsletterForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+
+    const email = newsletterForm.querySelector('input[name="email"]').value.trim();
+
+    if (!email) {
+      alert("Please enter your email.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = "Subscribing...";
 
     try {
 
-        const snapshot = await getDoc(counterRef);
+      await addDoc(collection(db, "newsletterSubscribers"), {
 
-        if (!snapshot.exists()) {
+        email,
+        subscribedAt: serverTimestamp()
 
-            await setDoc(counterRef, {
-                totalVisitors: 1
-            });
+      });
 
-            if (counterElement) {
-                counterElement.textContent = "1";
-            }
+      alert("✅ Thank you for subscribing!");
 
-        } else {
-
-            await updateDoc(counterRef, {
-                totalVisitors: increment(1)
-            });
-
-            const updated = await getDoc(counterRef);
-
-            if (counterElement) {
-                counterElement.textContent =
-                    updated.data().totalVisitors;
-            }
-
-        }
+      newsletterForm.reset();
 
     } catch (error) {
 
-        console.error("Visitor Counter Error:", error);
+      console.error("Newsletter Error:", error);
+
+      alert("❌ Subscription failed. Please try again.");
+
+    } finally {
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = "Subscribe";
 
     }
 
-}
+  });
 
-updateVisitorCounter();
+} else {
+
+  console.warn("Newsletter form not found.");
+
+}
