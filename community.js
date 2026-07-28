@@ -9,7 +9,7 @@ import {
   collection,
   addDoc,
   serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 const communityForm = document.getElementById("communityForm");
 
@@ -21,44 +21,48 @@ if (communityForm) {
 
     const submitBtn = communityForm.querySelector('button[type="submit"]');
 
-    const name = document.getElementById("communityName").value.trim();
-    const email = document.getElementById("communityEmail").value.trim();
-    const message = document.getElementById("communityMessage").value.trim();
+    const name = communityForm.querySelector('input[name="name"]').value.trim();
+    const email = communityForm.querySelector('input[name="email"]').value.trim();
 
-    if (!name || !email || !message) {
+    if (!name || !email) {
       alert("Please fill all fields.");
       return;
     }
 
     submitBtn.disabled = true;
-    submitBtn.innerHTML = "Posting...";
+    submitBtn.innerHTML = "Joining...";
 
     try {
 
-      await addDoc(collection(db, "communityPosts"), {
+      await addDoc(collection(db, "communityMembers"), {
+
         name,
         email,
-        message,
-        createdAt: serverTimestamp()
+        joinedAt: serverTimestamp()
+
       });
 
-      alert("Community post submitted successfully.");
+      alert("✅ Thank you for joining the community!");
 
       communityForm.reset();
 
     } catch (error) {
 
-      console.error(error);
+      console.error("Community Error:", error);
 
-      alert("Failed to submit community post.");
+      alert("❌ Failed to join community.");
 
     } finally {
 
       submitBtn.disabled = false;
-      submitBtn.innerHTML = "Submit";
+      submitBtn.innerHTML = "Join Community";
 
     }
 
   });
+
+} else {
+
+  console.warn("Community form not found.");
 
 }
