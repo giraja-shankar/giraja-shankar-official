@@ -1,66 +1,62 @@
 // ======================================
 // Giraja Shankar Official
-// Newsletter Form (Firebase Firestore)
+// Visitor Counter (Firebase Firestore)
 // ======================================
 
 import { db } from "./firebase.js";
 
 import {
-  collection,
-  addDoc,
-  serverTimestamp
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  increment
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-const newsletterForm = document.getElementById("newsletterForm");
+const counterRef = doc(db, "websiteStats", "visitorCounter");
+const counterElement = document.getElementById("visitorCount");
 
-if (newsletterForm) {
+async function updateVisitorCounter() {
 
-  newsletterForm.addEventListener("submit", async (e) => {
+  try {
 
-    e.preventDefault();
+    const snapshot = await getDoc(counterRef);
 
-    const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+    if (!snapshot.exists()) {
 
-    const email = newsletterForm.querySelector('input[name="email"]').value.trim();
-
-    if (!email) {
-      alert("Please enter your email.");
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = "Subscribing...";
-
-    try {
-
-      await addDoc(collection(db, "newsletterSubscribers"), {
-
-        email,
-        subscribedAt: serverTimestamp()
-
+      await setDoc(counterRef, {
+        totalVisitors: 1
       });
 
-      alert("✅ Thank you for subscribing!");
+      if (counterElement) {
+        counterElement.textContent = "1";
+      }
 
-      newsletterForm.reset();
+    } else {
 
-    } catch (error) {
+      await updateDoc(counterRef, {
+        totalVisitors: increment(1)
+      });
 
-      console.error("Newsletter Error:", error);
+      const updatedSnapshot = await getDoc(counterRef);
 
-      alert("❌ Subscription failed. Please try again.");
-
-    } finally {
-
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = "Subscribe";
+      if (counterElement) {
+        counterElement.textContent =
+          updatedSnapshot.data().totalVisitors;
+      }
 
     }
 
-  });
+  } catch (error) {
 
-} else {
+    console.error("Visitor Counter Error:", error);
 
-  console.warn("Newsletter form not found.");
+    if (counterElement) {
+      counterElement.textContent = "Unavailable";
+    }
+
+  }
 
 }
+
+updateVisitorCounter();
