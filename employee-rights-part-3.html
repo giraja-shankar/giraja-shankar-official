@@ -341,9 +341,6 @@ cursor:pointer;
 ← भाग 2
 </a>
 
-<a class="btn" href="employee-rights-part-4.html">
-भाग 4 →
-</a>
 <a class="btn" href="index.html">
 ← मुख्य वेबसाइट पर वापस जाएं
 </a>
@@ -365,6 +362,13 @@ cursor:pointer;
 onclick="window.scrollTo({top:0,behavior:'smooth'})">
 ↑
 </button>
+
+<script type="module">
+import { trackArticleView } from "./article-views.js";
+
+trackArticleView("employee-rights-part-3");
+</script>
+
 
 </body>
 
