@@ -50,4 +50,12 @@ function stopArticle(){speechSynthesis.cancel();s=false;}
 window.onscroll=function(){let w=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('progressBar').style.width=(w/h*100)+'%';}
 function toggleDarkMode(){document.body.classList.toggle('darkMode');}
 </script>
+
+
+<script type="module">
+import { trackArticleView } from "./article-views.js";
+
+trackArticleView("employee-rights-part-1");
+</script>
+
 </body></html>
