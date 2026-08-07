@@ -428,8 +428,29 @@ font-size:18px;
 #progressBar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,#EC4899,#7C3AED,#06B6D4);z-index:99999}
 .logo{text-shadow:0 0 10px #EC4899}
 </style><style>
-#typing{font-size:22px;color:#c084fc;animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.5}}
+#typing{
+    font-size:22px;
+    font-weight:600;
+    background:linear-gradient(90deg,#c084fc,#ec4899,#06b6d4,#fbbf24);
+    background-size:300% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:typingColor 5s linear infinite;
+}
+
+.typing-cursor{
+    font-size:24px;
+    color:#06b6d4;
+    animation:cursorBlink .7s infinite;
+}
+
+@keyframes typingColor{
+    to{background-position:300% center;}
+}
+
+@keyframes cursorBlink{
+    50%{opacity:0;}
+}
 .item,.card,.stat{transition:.4s}
 .item:hover,.card:hover,.stat:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(124,58,237,.35)}
 </style><style>
@@ -916,7 +937,7 @@ nav ul li a.active{color:#C084FC}
 Giraja Shankar
 
 </h1>
-<h2><span id="typing">LL.B. Student | AI Learner | Educator | Legal Content Creator</span></h2>
+<h2><span id="typing"></span><span class="typing-cursor">|</span></h2>
 <p>
 Welcome to My Official Website.
 Explore my legal journey, AI learning projects, professional achievements, articles, qualifications, and more.
@@ -1444,8 +1465,8 @@ window.addEventListener("load", () => {
 
 <script>
 const notifications = [
-    "⚖️ Legal Articles are Available Now!",
-    "📚 Read Our Latest Legal Articles!",
+    "⚖️ Legal Articles are Available Now! ",
+    " Read Our Latest Legal Articles! 📚",
     " Wishing You a Happy Friendship Day! 🫂"
 ];
 
@@ -1456,6 +1477,48 @@ updateTrack.addEventListener("animationiteration", function () {
     notificationIndex = (notificationIndex + 1) % notifications.length;
     updateTrack.textContent = notifications[notificationIndex];
 });
+</script>
+
+<script>
+const roles = [
+    "LL.B. Student",
+    "AI Learner",
+    "Educator",
+   "Translator",
+    "Legal Content Creator"
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeRole(){
+    const typing = document.getElementById("typing");
+    const current = roles[roleIndex];
+
+    if(!deleting){
+        typing.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+
+        if(charIndex === current.length){
+            deleting = true;
+            setTimeout(typeRole, 1500);
+            return;
+        }
+    }else{
+        typing.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+
+        if(charIndex === 0){
+            deleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+        }
+    }
+
+    setTimeout(typeRole, deleting ? 50 : 100);
+}
+
+typeRole();
 </script>
 
 </body>
