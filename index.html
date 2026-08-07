@@ -657,10 +657,10 @@ nav ul{gap:10px}
 </style>
 <style>.lightbox{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center}.lightbox img{max-width:90%;max-height:90%}</style>
 <!-- Firebase handled by firebase.js -->
+<style>
 /* ==========================================
    PAYMENT CENTER - PREMIUM DESIGN
 ========================================== */
-<style>
 
 .payment-box{
     max-width:900px;
@@ -872,7 +872,17 @@ width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid rgba(2
 #contact button,#newsletter button{display:block;margin:15px auto}
 footer{margin-top:0!important;padding-bottom:50px!important}
 body{overflow-x:hidden}
-</style></head>
+</style>
+<style>
+/* ===== FINAL CORRECTIONS: Active Menu + Article Views ===== */
+#latest{scroll-margin-top:150px}
+nav ul li a{position:relative;padding-bottom:6px}
+nav ul li a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:linear-gradient(90deg,#EC4899,#06B6D4);transition:width .3s ease}
+nav ul li a:hover::after,nav ul li a.active::after{width:100%}
+nav ul li a.active{color:#C084FC}
+.article-views-stat{margin-top:18px}
+</style>
+</head>
 <body>
 <div id="loader" style="position:fixed;inset:0;background:#120A1F;display:flex;align-items:center;justify-content:center;z-index:999999;color:#fff;font:700 22px sans-serif">Loading...</div>
 <div id="progressBar"></div><div id="clockBox">--:--:-- | 00:00</div><div class="particles"></div>
@@ -881,19 +891,16 @@ body{overflow-x:hidden}
 <div class="brand"><img alt="Profile" src="profile.jpg"/><div class="logo">Giraja Shankar</div></div>
 <ul>
 <li><a href="#about">About</a></li>
+<li><a href="#latest">Articles</a></li>
 <li><a href="#education">Education</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#certificates">Certificates</a></li>
 <li><a href="#projects">Projects</a></li>
-<li><a href="#articles">Articles</a></li><li><a href="#contact">Contact</a></li>
+<li><a href="#contact">Contact</a></li>
 </ul>
 <div class="hamburger">☰</div>
 </nav><div id="globalSearch" style="position:fixed;top:118px;left:10px;z-index:9999;"><input id="siteSearch" placeholder="Search website..." style="width:100px;padding:6px;border-radius:14px;transition:width .25s;"/></div>
-<div class="update-bar">
-<div class="update-track">
-        ⚖️ Legal Articles are Available Now...
-    </div>
-</div>
+
 <!-- HERO -->
 <section class="hero reveal">
 <div class="hero-content">
@@ -923,7 +930,7 @@ My Resume (PDF)
 <i class="fas fa-graduation-cap"></i>
 My Qualification (PDF)
 </a>
-<a class="btn article-btn" href="#articles">
+<a class="btn article-btn" href="#latest">
 <i class="fas fa-book-open"></i>
 My Articles
 </a>
@@ -943,7 +950,7 @@ My Articles
 </div>
 </div>
 </div>
-<a class="scroll-down-btn" href="#about">
+<a class="scroll-down-btn" href="#siteFooter" aria-label="Scroll to footer">
 <i class="fas fa-chevron-down"></i>
 </a>
 </section>
@@ -957,7 +964,7 @@ My Articles
 <div class="card"><h3>🎥 Live Meeting</h3>
 <a class="btn" href="https://meet.google.com/ggk-gzfq-qow" target="_blank">Join Meeting</a></div>
 <div class="card"><h3>🌐 Website Status</h3>
-<p>🟢 Online<br/>Version: 7.04<br/>Updated: 14 Jul 2026</p></div>
+<p>🟢 Online<br/>Version: 7.04<br/>Updated: 4 Aug 2026</p></div>
 </div>
 </section>
 <!-- ABOUT -->
@@ -967,8 +974,11 @@ My Articles
 10+ Years of Experience across education, finance and Professional sector with a growing focus on AI and legal technology. Law student with interests in Legal Research, Artificial Intelligence, Prompt Engineering and Article Writing.
 </div>
 </section>
-<section class="reveal" id="latest"><h2 class="section-title">Latest Articles</h2><div class="article-card"><h3>⚖️ लोकतंत्र में जनता कमजोर क्यों?</h3>
+<section class="reveal" id="latest"><h2 class="section-title">Most Read Article</h2><div class="article-card"><h3>⚖️ लोकतंत्र में जनता कमजोर क्यों?</h3>
 <p>नेता जनता के प्रतिनिधि हैं, राजा नहीं। जब जनता अपने संवैधानिक अधिकार भूल जाती है, सत्ता अपनी संवैधानिक सीमाएँ भूल सकती है। इसलिए भारत को केवल अच्छे नेताओं और अधिकारियों की नहीं, संवैधानिक रूप से जागरूक नागरिकों की भी आवश्यकता है।</p><a class="read-btn" href="power-constitution-and-people.html">Read Latest Article</a></div>
+<div style="text-align:center;margin-top:25px;">
+<a class="btn" href="More Articles.html"><i class="fas fa-book-open"></i> View All Articles</a>
+</div>
 </section>
 <!-- EDUCATION -->
 <section class="reveal" id="education">
@@ -985,103 +995,6 @@ My Articles
 <div class="skill">ChatGPT<div class="progress"><div class="bar" style="width:85%"></div></div></div>
 <div class="skill">Teaching<div class="progress"><div class="bar" style="width:85%"></div></div></div>
 <div class="skill">Calligraphy<div class="progress"><div class="bar" style="width:85%"></div></div></div>
-</div>
-</section>
-<section class="reveal" id="articles">
-<input id="blogSearch" placeholder="Search articles..." style="width:100%;padding:12px;margin:20px 0;border-radius:10px;"/><h2 class="section-title">My Legal Articles</h2>
-<div class="article-card">
-<h3>📖 भारतीय संविधान क्या है?</h3>
-<p>
-
-भारतीय संविधान भारत का सर्वोच्च कानून है।
-
-यह बताता है कि देश कैसे चलेगा, सरकार कैसे काम करेगी तथा नागरिकों के अधिकार और कर्तव्य क्या हैं।
-
-</p>
-<a class="read-btn" href="constitution.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>⚖️ मौलिक अधिकार</h3>
-<p>
-
-हर भारतीय नागरिक को संविधान कुछ महत्वपूर्ण अधिकार देता है जैसे समानता, स्वतंत्रता तथा न्याय का अधिकार।
-
-</p>
-<a class="read-btn" href="fundamental-rights.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>🏛️ संविधान सभा</h3>
-<p>
-
-संविधान सभा ने लगभग 2 वर्ष 11 महीने 18 दिन की मेहनत से भारतीय संविधान तैयार किया।
-
-</p>
-<a class="read-btn" href="constituent-assembly.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>⚖️ लोकतंत्र में जनता कमजोर क्यों?</h3>
-<p>लोकतंत्र में जनता की वास्तविक शक्ति, संवैधानिक जागरूकता, नागरिक अधिकारों और सत्ता के प्रति भय के प्रश्न पर एक महत्वपूर्ण कानूनी लेख।</p>
-<a class="read-btn" href="power-constitution-and-people.html">Read More</a>
-</div>
-<!-- READY LEGAL ARTICLE BLOCKS: Change only the topic title and HTML file name -->
-<div class="article-card">
-<h3>📚भारत में महिला सुरक्षा: कानून मजबूत हुए, लेकिन क्या महिलाएँ वास्तव में सुरक्षित हुईं? </h3>
-<p> त्येक दर्ज मामले के पीछे किसी महिला या लड़की का जीवन, भय, पीड़ा और संघर्ष हो सकता है। इसलिए महिला सुरक्षा पर चर्चा भावनाओं के साथ-साथ प्रमाणित आँकड़ों और उनकी सही व्याख्या पर भी आधारित होनी चाहिए।</p>
-<a class="read-btn" href="india-women-safety-premium-legal-blog.html">Read More</a>
-</div>
-<div class="article-card">
-<h3> संवैधानिक शिक्षा के अभाव में मजबूत लोकतंत्र का निर्माण संभव नहीं </h3>
-<p> जिस नागरिक को अपने संविधान और कानूनी अधिकारों का ज्ञान ही नहीं है, वह लोकतंत्र में अपनी भूमिका प्रभावी रूप से कैसे निभाएगा?</p>
-<a class="read-btn" href="constitutional-education-and-democracy.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>सड़क पर वाहन चालक के अधिकार और जिम्मेदारियाँ 08</h3>
-<p> सड़क की भी एक भाषा होती है—सड़क पर बनी हर पट्टी, तीर और संकेत चालक से कुछ कह रहा होता है—अच्छे चालक को सड़क की यह भाषा समझनी चाहिए।</p>
-<a class="read-btn" href="driver-rights-road-safety-premium-blog-v2.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>📚  क्या शहरों के नाम बदलने पर खर्च होने वाला सार्वजनिक धन
-विकास पर लगाया जाना चाहिए?
-</h3>
-<p>यदि किसी शहर का नाम बदल दिया जाए, तो क्या उस शहर की सड़कें बेहतर हो जाती हैं?
-क्या अस्पतालों में डॉक्टरों की संख्या बढ़ जाती है?
-क्या बेरोज़गारी कम हो जाती है?
-क्या प्रदूषण समाप्त हो जाता है?
-</p>
-<a class="read-btn" href="public-money-vs-city-renaming-part-1.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>सरकारी अस्पतालों की बदहाल स्थिति: क्या गरीब को गुणवत्तापूर्ण इलाज मिल रहा है? </h3>
-<p>"एक लोकतांत्रिक देश की पहचान केवल उसके बड़े अस्पतालों से नहीं, बल्कि इस बात से होती है कि सबसे गरीब नागरिक को भी सम्मानपूर्वक और समय पर इलाज मिले।"</p>
-<a class="read-btn" href="government-hospital-condition-part-1.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>📚 भारत में कर्मचारी शोषण की वास्तविकता</h3>
-<p> किसी भी राष्ट्र की आर्थिक प्रगति का सबसे महत्वपूर्ण आधार उसके कर्मचारी होते हैं।किसी भी राष्ट्र की वास्तविक प्रगति उसकी ऊँची इमारतों से नहीं, बल्कि उसके कर्मचारियों के सम्मान, सुरक्षा और न्याय से मापी जाती है।</p>
-<a class="read-btn" href="employee-rights-part-1.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>शांतिपूर्ण विरोध हमारा मौलिक अधिकार है, अपराध नहीं — भारतीय संविधान क्या कहता है?</h3>
-<p>"लोकतंत्र केवल चुनाव का नाम नहीं है। लोकतंत्र का वास्तविक अर्थ है कि जनता अपनी बात स्वतंत्र रूप से रख सके, सरकार से प्रश्न पूछ सके, 
-   नीतियों का समर्थन या विरोध कर सके, और बिना भय के अपने अधिकारों की रक्षा कर सके।"</p>
-<a class="read-btn" href="protest rights.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>📚क्या छात्रों के न्याय की अंतिम उम्मीद भी खत्म हो जाएगी?
-क्या कहता है संविधान का अनुच्छेद 32? CJP Students Protest, Delhi 2026</h3>
-<p>जब किसी नागरिक या समूह को यह महसूस होता है कि उसके मौलिक अधिकारों का उल्लंघन हुआ है, तो भारतीय संविधान उसे केवल शिकायत करने का अधिकार ही नहीं देता,
-   बल्कि न्याय प्राप्त करने का एक सीधा संवैधानिक मार्ग भी उपलब्ध कराता है। यह मार्ग है—भारतीय संविधान का अनुच्छेद 32।</p>
-<a class="read-btn" href="article 32.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>📚 नया कानूनी विषय 12</h3>
-<p>इस विषय पर नया कानूनी और जन-जागरूकता लेख पढ़ें।</p>
-<a class="read-btn" href="blog12.html">Read More</a>
-</div>
-<div class="article-card">
-<h3>📚 नया कानूनी विषय 12</h3>
-<p>इस विषय पर नया कानूनी और जन-जागरूकता लेख पढ़ें।</p>
-<a class="read-btn" href="blog12.html">Read More</a>
 </div>
 </section>
 <!-- CERTIFICATES -->
@@ -1246,8 +1159,7 @@ Send Message
 <h3>Google Meet Room</h3>
 <p>Welcome to Join With us to Discuss on Social, Political, and Economical issues of India! </p>
 <a class="btn" href="https://meet.google.com/ggk-gzfq-qow" target="_blank">Join Google Meet</a>
-<p style="margin-top:10px;color:#FBBF24">🟢 Meeting Status: on hold <br/>📅 Last Updated: 28
-July 2026</p>
+<p style="margin-top:10px;color:#FBBF24">🟢 Meeting Status: on hold <br/>📅 Last Updated: 4 August 2026</p>
 </div>
 </section>
 <section class="reveal" id="payment">
@@ -1316,6 +1228,10 @@ Website Statistics
 <h2 id="visitorCount">Loading...</h2>
 <p>Total Visitors</p>
 </div>
+<div class="visitor-box article-views-stat">
+<h2 id="totalArticleViews">Loading...</h2>
+<p>Total Article Views</p>
+</div>
 </section>
 
 <section class="reveal" id="vision">
@@ -1328,7 +1244,7 @@ Website Statistics
 </section>
 
 
-<footer>
+<footer id="siteFooter">
 <div class="follow-text">
 Follow On
 </div>
@@ -1425,6 +1341,85 @@ window.onclick=e=>{
 };
 });
 </script>
+<script>
+/* ===== Global Website Search ===== */
+(() => {
+  const input = document.getElementById("siteSearch");
+  if (!input) return;
+
+  const searchable = [...document.querySelectorAll("section")].filter(section => section.id);
+
+  function clearSearch(){
+    searchable.forEach(section => section.style.display = "");
+    document.querySelectorAll("#articles .article-card").forEach(card => card.style.display = "");
+  }
+
+  function runSearch(){
+    const q = input.value.trim().toLowerCase();
+    if (!q){ clearSearch(); return; }
+
+    let firstMatch = null;
+    searchable.forEach(section => {
+      const match = section.innerText.toLowerCase().includes(q);
+      section.style.display = match ? "" : "none";
+      if (match && !firstMatch) firstMatch = section;
+    });
+
+    if (firstMatch) firstMatch.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+
+  input.addEventListener("input", runSearch);
+  input.addEventListener("keydown", e => {
+    if (e.key === "Escape") { input.value = ""; clearSearch(); input.blur(); }
+  });
+})();
+</script>
+<script>
+/* ===== Active Navbar Link on Scroll ===== */
+(() => {
+  const links = [...document.querySelectorAll('nav ul li a[href^="#"]')];
+  const pairs = links.map(link => ({
+    link,
+    section: document.querySelector(link.getAttribute("href"))
+  })).filter(x => x.section);
+
+  function setActive(){
+    const y = window.scrollY + 180;
+    let current = null;
+    for (const item of pairs){
+      if (item.section.offsetTop <= y && (!current || item.section.offsetTop > current.section.offsetTop)) {
+        current = item;
+      }
+    }
+    links.forEach(link => link.classList.remove("active"));
+    if (current) current.link.classList.add("active");
+  }
+
+  window.addEventListener("scroll", setActive, {passive:true});
+  window.addEventListener("load", setActive);
+})();
+</script>
+<script type="module">
+/* ===== Total Article Views from Firestore ===== */
+import { db } from "./firebase.js";
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const totalEl = document.getElementById("totalArticleViews");
+if (totalEl){
+  try {
+    const snapshot = await getDocs(collection(db, "articleViews"));
+    let total = 0;
+    snapshot.forEach(docSnap => {
+      const views = Number(docSnap.data().views || 0);
+      total += Number.isFinite(views) ? views : 0;
+    });
+    totalEl.textContent = total.toLocaleString("en-IN");
+  } catch (error) {
+    console.error("Total Article Views Error:", error);
+    totalEl.textContent = "--";
+  }
+}
+</script>
 <script src="firebase.js" type="module"></script>
 <script src="contact-form.js" type="module"></script>
 <script src="community.js" type="module"></script>
@@ -1439,5 +1434,22 @@ window.addEventListener("load", () => {
   }
 });
 </script>
+
+<script>
+const notifications = [
+    "⚖️ Legal Articles are Available Now...",
+    "📚 Read Our Latest Legal Articles...",
+    "💖🤝✨ Wishing You a Happy Friendship Day! 🫂💐💫"
+];
+
+let notificationIndex = 0;
+const updateTrack = document.getElementById("updateTrack");
+
+updateTrack.addEventListener("animationiteration", function () {
+    notificationIndex = (notificationIndex + 1) % notifications.length;
+    updateTrack.textContent = notifications[notificationIndex];
+});
+</script>
+
 </body>
 </html>
